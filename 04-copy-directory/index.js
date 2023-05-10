@@ -3,10 +3,20 @@ const path = require('path');
 const directory  = path.join(__dirname, 'files');
 const directoryNew  = path.join(__dirname, 'files-copy');
 
+async function createDir(){
+
+}
+
 async function copyFiles() {
   try {
+    await fs.access(directoryNew);
     await fs.rm(directoryNew, { recursive: true });
+    console.log('Папка успешно удалена');
+  } catch (err) {
+    console.error(err);
+  }
 
+  try {
     await fs.mkdir(directoryNew, { recursive: true });
     console.log('Папка успешно создана');
 
