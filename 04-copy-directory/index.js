@@ -12,7 +12,7 @@ fs.mkdir(directoryNew, { recursive: true }, err => {
 fs.readdir(directoryNew, 'utf8', function(error, dirContent){
   if(error) throw error; // ошибка чтения файла, если есть
   dirContent.forEach((file) => {
-    fs.unlink(`${directoryNew}/${file}`, err => {
+    fs.rm(`${directoryNew}/${file}`, err => {
       if(err) throw err; // не удалось удалить файл
       console.log('Файл успешно удалён');
     });
